@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>登录/注册</title>
+    <link rel="stylesheet" href="../static/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <style>
+        .flash-messages {
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .alert {
+            padding: 10px;
+            background-color: #f44336;
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="materialContainer">
+    <!-- Flash 消息 -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for message in messages %}
+                    <div class="alert">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- 登录框 -->
+    <div class="box">
+        <div class="title">登录</div>
+        <form action="/login" method="POST">
+            <div class="input">
+                <label for="name">用户名</label>
+                <input type="text" name="name" id="name" required>
+                <span class="spin"></span>
+            </div>
+            <div class="input">
+                <label for="pass">密码</label>
+                <input type="password" name="pass" id="pass" required>
+                <span class="spin"></span>
+            </div>
+            <div class="button login">
+                <button type="submit">
+                    <span>登录</span>
+                    <i class="fa fa-check"></i>
+                </button>
+            </div>
+        </form>
+        <a href="javascript:" class="pass-forgot">忘记密码？</a>
+    </div>
+
+    <!-- 注册框 -->
+    <div class="overbox">
+        <div class="material-button alt-2">
+            <span class="shape"></span>
+        </div>
+        <div class="title">注册</div>
+        <form action="/register" method="POST">
+            <div class="input">
+                <label for="regname">用户名</label>
+                <input type="text" name="regname" id="regname" required>
+                <span class="spin"></span>
+            </div>
+            <div class="input">
+                <label for="regpass">密码</label>
+                <input type="password" name="regpass" id="regpass" required>
+                <span class="spin"></span>
+            </div>
+            <div class="input">
+                <label for="reregpass">确认密码</label>
+                <input type="password" name="reregpass" id="reregpass" required>
+                <span class="spin"></span>
+            </div>
+            <div class="input">
+                <label for="email">邮箱</label>
+                <input type="email" name="email" id="email" required>
+                <span class="spin"></span>
+            </div>
+            <div class="button">
+                <button type="submit">
+                    <span>注册</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/index.js"></script>
+</body>
+</html>

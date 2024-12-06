@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图像分类</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/classify_style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>树叶分类 - 上传并预测</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">首页</a></li>
+                <li><a href="{{ url_for('classify') }}">图像分类</a></li>
+                <li><a href="{{ url_for('users') }}">用户管理</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="upload-section">
+            <h2>上传一张图片进行预测</h2>
+            <form action="{{ url_for('classify') }}" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" required>
+                <button type="submit">上传并预测</button>
+            </form>
+        </section>
+
+        {% if filename %}
+        <section class="result">
+            <h3>上传的图片</h3>
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image" class="uploaded-image">
+            <p>预测结果: 类别 {{ predicted_class }} - {{ predicted_label }}</p>
+        </section>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 树叶分类项目. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

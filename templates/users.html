@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户管理</title>
+
+    <!-- 导航栏的 CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/classify_style.css') }}">
+
+    <!-- 用户管理部分的 CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom-style.css') }}">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <h1>树叶分类 - 用户管理</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">首页</a></li>
+                <li><a href="{{ url_for('classify') }}">图像分类</a></li>
+                <li><a href="{{ url_for('users') }}">用户管理</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 用户管理内容 -->
+    <div class="container">
+        <h1>用户管理</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>用户名</th>
+                    <th>邮箱</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email or 'N/A' }}</td>
+                    <td>{{ user.created_time.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                    <td>
+                        <form action="{{ url_for('delete_user', user_id=user.id) }}" method="post" style="display: inline;">
+                            <button type="submit" class="btn delete">删除</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2024 树叶分类项目. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

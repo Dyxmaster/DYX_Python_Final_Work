@@ -1,0 +1,118 @@
+/* 全局样式 */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eef2f3;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+/* 头部样式 */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #4a90e2;
+    margin: 0;
+}
+
+.btn.add {
+    background-color: #27ae60;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.btn.add:hover {
+    background-color: #218c53;
+}
+
+/* 表格样式 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+table th {
+    background-color: #4a90e2;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+table tr:hover {
+    background-color: #f1f5f8;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* 按钮样式 */
+.btn {
+    padding: 8px 20px;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn.view {
+    background-color: #3498db;
+}
+
+.btn.view:hover {
+    background-color: #2c80b4;
+}
+
+.btn.delete {
+    background-color: #e74c3c;
+}
+
+.btn.delete:hover {
+    background-color: #c0392b;
+}
+
+/* 页脚样式 */
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+}

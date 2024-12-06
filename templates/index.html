@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>树叶分类 - 主页面</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main_style.css') }}">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <h1>树叶分类</h1>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('index') }}">首页</a></li>
+                    <li><a href="{{ url_for('users') }}">用户管理</a></li>
+                    <li><a href="{{ url_for('classify') }}">开始预测</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主体内容 -->
+    <main>
+        <!-- 欢迎部分 -->
+        <div class="welcome-section">
+            <h2>欢迎来到树叶的世界！</h2>
+            <p>树叶不仅是植物的重要器官，也是自然界的重要元素。每一种叶子都有其独特的分类方式。</p>
+            <p class="current-date">今天是：<span id="date"></span></p>
+            <p class="leaf-description">
+                树叶分类可以帮助我们理解植物的适应性和生态功能，对于植物学的研究至关重要。
+                通过观察树叶的形态、颜色、排列等特征，可以判定不同植物种类。
+            </p>
+
+        </div>
+
+        <!-- 树叶图片展示 -->
+     <div class="leaf-image-gallery">
+    <img src="../static/images/leaf1.jpg" alt="Tree Leaf 1">
+    <img src="../static/images/leaf2.jpg" alt="Tree Leaf 2">
+    <img src="../static/images/leaf3.jpg" alt="Tree Leaf 3">
+</div>
+
+        <!-- 卡片展示区 -->
+        <div class="card-section">
+            <div class="card">
+                <h3>了解分类</h3>
+                <p>通过上传树叶图片，快速识别其所属的树种。</p>
+                <a href="{{ url_for('classify') }}" class="button">开始预测</a>
+            </div>
+            <div class="card">
+                <h3>用户管理</h3>
+                <p>查看当前用户信息，并可增删。</p>
+                <a href="{{ url_for('users') }}" class="button">用户管理</a>
+            </div>
+            <div class="card">
+                <h3>最新动态</h3>
+                <p>查看我们最近的研究进展和项目更新。</p>
+                <a href="#" class="button">查看详情</a>
+            </div>
+        </div>
+
+        <!-- 技术背景介绍 -->
+        <section class="tech-background">
+            <h2>树叶分类技术背景</h2>
+            <p>
+                树叶分类技术是基于图像处理与机器学习的研究领域，利用计算机视觉算法分析树叶的形态、颜色、纹理等特征，
+                为植物学研究提供了一种高效、快速的工具。
+            </p>
+        </section>
+
+
+
+        <!-- 动态滚动名言 -->
+        <div class="quote-scroll">
+            <div class="quote">
+    "大自然不是一个地方，而是一种感觉。" - 瑞秋·卡森
+</div>
+<div class="quote">
+    "当你凝视大自然时，你也在凝视自己。" - 卡尔·古斯塔夫·荣格
+</div>
+<div class="quote">
+    "地球是我们的家，保护自然就是保护我们自己。" - 地球人
+</div>
+<div class="quote">
+    "自然从不急于完成，但它总是实现目标。" - 拉尔夫·瓦尔多·爱默生
+</div>
+<div class="quote">
+    "自然界的每一个角落都充满了生命与美丽。" - 约翰·缪尔
+</div>
+<div class="quote">
+    "人与自然和谐共生，才能确保人类的可持续发展。" - 王德峰
+</div>
+<div class="quote">
+    "人类从自然中获得了生命，而自然又从人类中获得了保护。" - 达尔文
+</div>
+<div class="quote">
+    "我们借用大自然的资源，但不能摧毁它。" - 奥斯卡·王尔德
+</div>
+<div class="quote">
+    "没有大自然，艺术就失去了根基。" - 皮卡索
+</div>
+<div class="quote">
+    "大自然是最伟大的艺术家。" - 莱昂纳多·达·芬奇
+</div>
+
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2024 树叶分类项目. All Rights Reserved.</p>
+    </footer>
+
+    <!-- 添加JS来显示当前日期 -->
+    <script>
+        const today = new Date();
+        const dateString = today.toLocaleDateString('zh-CN', {
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+        });
+        document.getElementById('date').textContent = dateString;
+    </script>
+</body>
+</html>
